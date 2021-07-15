@@ -35,7 +35,9 @@ def main(fn, name, affiliations, title):
     n = row[name] # name of author
     n_affs = set() # author affiliations
     for affiliation in affiliations:
-      a = row[affiliation]
+      a = row[affiliation].strip()
+      if a == '':
+        continue
       n_affs.add(next_aff)
 
       if a not in affs_seen:
