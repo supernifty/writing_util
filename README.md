@@ -27,7 +27,8 @@ authors.csv is a CSV file with author name and affiliations. Specify these on th
 ```
  python ../../../util/author_affiliations.py \
   --verbose \
-  --file authors.csv \
+  --input authors.csv \
+  --output authors.csv \
   --name 'Full name' \
   --affiliations 'Affiliation 1' 'Affiliation 2' 'Affiliation 3' 'Affiliation 4' 'Affiliation 5' 'Affiliation 6' \
   --title 'Title of paper'
