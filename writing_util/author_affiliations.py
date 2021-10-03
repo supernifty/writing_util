@@ -109,7 +109,7 @@ def main(fn, name, affiliations, title, output):
   logging.info('done')
 
 if __name__ == '__main__':
-  parser = argparse.ArgumentParser(description='Assess MSI')
+  parser = argparse.ArgumentParser(description='Generate affiliations')
   parser.add_argument('--input', required=True, help='filename')
   parser.add_argument('--output', required=False, default='data.docx', help='filename')
   parser.add_argument('--name', required=True, help='name field')
