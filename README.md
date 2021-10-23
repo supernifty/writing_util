@@ -20,7 +20,7 @@ Check abbreviations with an "issue".
 ### TODO
 * currently the software doesn't check across lines
 
-# Author Affiliations
+## Author Affiliations
 
 authors.csv is a CSV file with author name and affiliations. Specify these on the command line to generate a word doc.
 
@@ -32,4 +32,9 @@ authors.csv is a CSV file with author name and affiliations. Specify these on th
   --name 'Full name' \
   --affiliations 'Affiliation 1' 'Affiliation 2' 'Affiliation 3' 'Affiliation 4' 'Affiliation 5' 'Affiliation 6' \
   --title 'Title of paper'
+```
+
+## Combine word documents
+```
+python writing_util/combine.py --inputs w1.docx w2.docx --output wout.docx
 ```
