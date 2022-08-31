@@ -17,7 +17,7 @@ def list_with_and(l):
 def main(fh_in, name, contributions, fh_out):
   authors_seen = set()
   conts = collections.defaultdict(set)
-  for i, row in enumerate(csv.DictReader(fh_in)):
+  for i, row in enumerate(csv.DictReader(fh_in)): # each author
     if i < 2:
       logging.debug(row)
 
@@ -26,13 +26,19 @@ def main(fh_in, name, contributions, fh_out):
     if n == '':
       continue
 
+    logging.debug('processing %s...', n)
     if n in authors_seen:
       logging.warn('%s is duplicated', n)
     authors_seen.add(n)
 
-    for contribution in contributions:
+    contribution_count = 0
+    for contribution in contributions: # contribution columns
       if row[contribution].strip() != '':
         conts[contribution].add(n)
+        contribution_count += 1
+
+    if contribution_count == 0:
+      logging.warn('%s did not contribute...', n)
 
   # write all authors that contributed to each contribution
   for contribution in contributions:

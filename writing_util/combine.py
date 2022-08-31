@@ -11,25 +11,22 @@ import csv
 import logging
 import sys
 
+#from docx import Document
+
+from docxcompose.composer import Composer
 from docx import Document
 
 def main(inputs, output):
-
-  target = Document()
-
   for j, inp in enumerate(inputs):
-    logging.info('opening %s', inp)
-
+    logging.info('adding %s', inp)
     if j == 0:
-      target = Document(inp) # copy styles etc
+      target = Document(inp)
+      composer = Composer(target)
     else:
-      target.add_page_break()
-      d = Document(inp)
-      for element in d.element.body:
-        target.element.body.append(element)
-
+      sub = Document(inp)
+      composer.append(sub)
   logging.info('saving %s', output)
-  target.save(output)
+  composer.save(output)
   logging.info('done')
 
 if __name__ == '__main__':
