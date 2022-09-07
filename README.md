@@ -38,3 +38,8 @@ authors.csv is a CSV file with author name and affiliations. Specify these on th
 ```
 python writing_util/combine.py --inputs w1.docx w2.docx --output wout.docx
 ```
+
+## Extract images from a PDF
+```
+python writing_util/pdf_to_img.py --pdf fn.pdf
+```
